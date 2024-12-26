@@ -7,6 +7,8 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class ErrorDetails {
 
 	private String date;
