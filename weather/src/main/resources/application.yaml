@@ -1,0 +1,36 @@
+server:
+  port: 8082
+  
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/weatherdb
+    username: sa
+    #password: root
+    driverClassName: org.h2.Driver
+  h2:
+    console:
+      enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update 
+  application:
+    name: weather-service
+
+#Configure of feign synchronize calling other API
+feign:
+  client:
+    config:
+      default:
+        loggerLevel: FULL
+  compression:
+    request:
+      enabled: true
+    response:
+      enabled: true
+      
+#Configure of 3rd party API
+weather:
+  api:
+    url: https://api.openweathermap.org/data/2.5/weather
+    key: 2c7821a6f5498727d278ff02f28be9a3
